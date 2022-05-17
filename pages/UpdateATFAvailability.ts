@@ -13,6 +13,7 @@ export default class HomePage extends BasePage {
   constructor(page: Page) {
     super(page);
     this.yesRadioButton = page.locator('#hvt-');
+    this.noRadioButton = page.locator('#hvt--2');
     this.continueButton = page.locator('button:has-text("Continue")');
   }
 

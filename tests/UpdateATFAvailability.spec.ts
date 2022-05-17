@@ -16,3 +16,18 @@ test('Given a Operator wants to update their availability', async ( { page } ) =
   });
 
 });
+
+test('Given as Operator I do not have anymore test slots', async ( { page } ) => { 
+  const homePage = new HomePage(page);
+  await homePage.goto();
+
+  await test.step('When the operator update their availability to I do not have availability', async () => {
+    await homePage.iDoNotHaveAvailability();
+  });
+
+  await test.step('Then I should see a message', async () => {
+      await expect(page.locator('text=is fully booked').first()).toBeVisible();
+    
+  });
+
+});
