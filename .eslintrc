@@ -1,0 +1,15 @@
+{
+	"extends": [
+	  "@dvsa/eslint-config-ts"
+	],
+	"overrides": [
+	  {
+		"files": ["*"],
+		"rules": {
+		  "jest/require-top-level-describe": "off",
+		  "jest/no-done-callback": "off"
+		} 
+	  }
+	]
+  }
+  
