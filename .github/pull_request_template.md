@@ -8,8 +8,8 @@ Include a summary of the change here.
 - [ ] Feature (non-breaking change which adds functionality)
 
 
-#### Change Summary 
-If the pull request is to add new functionality then include the following:
+#### Summary of the Change Summary 
+
 
 
 ## Checklist:
