@@ -2,7 +2,9 @@
   "name": "hvt-automated-test",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint \"*.ts\""
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ibrahimjassat/HVT-automated-tests"
