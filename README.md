@@ -1,6 +1,8 @@
 # HVT-automated-tests
 
-Automation tests for the HVT application.
+Automation tests for the DVSA HVT application.
+
+> **_NOTE:_** This project uses ESLint to help with code quality and coding style issues. This project uses the ESLint config provided by DVSA. See [DVSA ESLint repo](https://github.com/dvsa/eslint-config-ts) for more information.
 
 ## Prerequisites
 1. Clone this repository

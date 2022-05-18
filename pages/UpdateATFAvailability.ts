@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 import BasePage from './BasePage';
 
 export default class HomePage extends BasePage {
@@ -19,7 +19,6 @@ export default class HomePage extends BasePage {
 
   async goto(): Promise<void> {
     await this.page.goto(HomePage.path);
-    await expect(this.page.locator('text=Tell DVSA if you could take more MOT bookings').first()).toBeVisible();
   }
 
   async iHaveAvailability(): Promise<void> {
@@ -30,6 +29,11 @@ export default class HomePage extends BasePage {
   async iDoNotHaveAvailability(): Promise<void> {
     await this.noRadioButton.click();
     await this.continueButton.click();
+  }
+
+
+  async gotoInvalidURL(): Promise<void> {
+    await this.page.goto(HomePage.path.concat('hello'));
   }
 }
 

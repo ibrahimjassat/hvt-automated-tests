@@ -16,10 +16,10 @@
   "homepage": "https://github.com/ibrahimjassat/HVT-automated-tests#readme",
   "devDependencies": {
     "@dvsa/eslint-config-ts": "^2.4.0",
-    "@playwright/test": "^1.22.1",
     "jest": "^27.5.1"
   },
   "dependencies": {
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "@playwright/test": "^1.22.1"
   }
 }
