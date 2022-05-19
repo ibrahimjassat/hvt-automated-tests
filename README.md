@@ -38,6 +38,11 @@ Automation tests for the DVSA HVT application.
 npx playwright test
 ```
 
+### Run a single test file
+
+```shell
+npx playwright test tests/<filename>
+
 ```
 ### Run a specific browser
 Tests will run in all browsers unless specified. Browsers are listed in playwright.config.ts
