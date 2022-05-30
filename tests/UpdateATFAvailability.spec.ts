@@ -45,6 +45,14 @@ test('Given as Operator I do not have anymore test slots and uses the same link 
 
 });
 
+test('Given a Operator wants to update their availability but uses an expired token', async ( { page } ) => { 
+  const homePage = new HomePage(page);
+  await homePage.goto();
+  await expect(page.locator('text=Tell DVSA if you could take more MOT bookings').first()).toBeVisible();
+    await expect(page.locator('text=The link you used has expired').first()).toBeVisible();
+
+});
+
 test('Given a Operator wants to update their availability but use an invaild token', async ( { page } ) => { 
   const homePage = new HomePage(page);
   await homePage.gotoInvalidURL();
