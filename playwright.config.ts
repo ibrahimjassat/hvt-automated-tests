@@ -40,9 +40,9 @@ const config: PlaywrightTestConfig = {
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-    video: 'on-first-retry',
-    screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
+    video: 'retain-on-failure',
+    screenshot: 'on',
   },
 
   /* Configure projects for major browsers */
@@ -54,7 +54,7 @@ const config: PlaywrightTestConfig = {
       },
     },
 
-    /* {
+   {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
@@ -66,39 +66,39 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices['Desktop Safari'],
       },
-    }, */
+    },
 
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: {
-    //     ...devices['Pixel 5'],
-    //   },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: {
-    //     ...devices['iPhone 12'],
-    //   },
-    // },
+    {
+      name: 'Mobile Chrome',
+      use: {
+        ...devices['Pixel 5'],
+      },
+    },
+    {
+      name: 'Mobile Safari',
+      use: {
+        ...devices['iPhone 12'],
+      },
+    },
 
     /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: {
-    //     channel: 'msedge',
-    //   },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: {
-    //     channel: 'chrome',
-    //   },
-    // },
+    {
+      name: 'Microsoft Edge',
+      use: {
+        channel: 'msedge',
+      },
+    },
+    {
+      name: 'Google Chrome',
+      use: {
+        channel: 'chrome',
+      },
+    },
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  // outputDir: 'test-results/',
+  outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
   // webServer: {
