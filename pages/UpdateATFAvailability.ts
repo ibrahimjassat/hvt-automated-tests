@@ -2,7 +2,7 @@ import { Locator, Page } from '@playwright/test';
 import BasePage from './BasePage';
 
 export default class HomePage extends BasePage {
-  static path = process.env.BASE_URL + 'confirm-mot-test-availability.service.gov.uk/update?token=' + process.env.TOKEN;
+  static path = process.env.CONFIRM_URL + process.env.TOKEN + process.env.TOKEN2;
 
   readonly yesRadioButton: Locator;
 

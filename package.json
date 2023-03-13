@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "lint": "eslint \"*.ts\""
+    "lint": "eslint \"*.ts\" pages tests"
   },
   "repository": {
     "type": "git",

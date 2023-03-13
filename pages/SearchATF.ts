@@ -2,7 +2,7 @@ import { Locator, Page } from '@playwright/test';
 import BasePage from './BasePage';
 
 export default class HomePage extends BasePage {
-  static path = process.env.BASE_URL + 'find-test-centre-hgv-bus-trailer-mot.service.gov.uk';
+  static path = process.env.SEARCH_URL;
 
   readonly postcodeInput: Locator;
 

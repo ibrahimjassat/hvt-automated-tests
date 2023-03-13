@@ -2,11 +2,11 @@ import { Locator, Page } from '@playwright/test';
 import BasePage from './BasePage';
 
 export default class HomePage extends BasePage {
-  static path = process.env.BASE_URL + 'find-test-centre-hgv-bus-trailer-mot.service.gov.uk';
+  static path = process.env.SEARCH_URL;
 
   readonly acceptCookiesButton: Locator;
 
-  readonly setCookiePerferenceButton: Locator;
+  readonly setCookiePreferenceButton: Locator;
 
   readonly hideLink: Locator;
 
@@ -18,18 +18,18 @@ export default class HomePage extends BasePage {
 
   readonly saveChangeButton: Locator;
 
-  readonly cookiePerferencePage: Locator;
+  readonly cookiePreferencePage: Locator;
 
   constructor(page: Page) {
     super(page);
     this.acceptCookiesButton = page.locator('text=Accept all cookies');
-    this.setCookiePerferenceButton = page.locator('text=Set cookie preferences');
+    this.setCookiePreferenceButton = page.locator('text=Set cookie preferences');
     this.hideLink = page.locator('text=Hide');
     this.setAnalyticsToOnRadioButton = page.locator('#radio-analytics-on');
     this.setAnalyticsToOffRadioButton = page.locator('#radio-analytics-off');
     this.saveChangeButton = page.locator('text=Save changes');
     this.cookiesPageLink = page.locator('a:has-text("Cookies")');
-    this.cookiePerferencePage = page.locator('text=change which cookies you\'re happy for us to use.');
+    this.cookiePreferencePage = page.locator('text=change which cookies you\'re happy for us to use.');
   }
 
   async goto(): Promise<void> {
@@ -40,8 +40,8 @@ export default class HomePage extends BasePage {
     await this.acceptCookiesButton.click();
   }
 
-  async setCookiePerference(): Promise<void> {
-    await this.setCookiePerferenceButton.click();
+  async setCookiePreference(): Promise<void> {
+    await this.setCookiePreferenceButton.click();
   }
 
   async hideBanner(): Promise<void> {
@@ -58,9 +58,9 @@ export default class HomePage extends BasePage {
     await this.saveChangeButton.click();
   }
 
-  async cookiesPerferencePage(): Promise<void> {
+  async cookiesPreferencePage(): Promise<void> {
     await this.cookiesPageLink.click();
-    await this.cookiePerferencePage.click();
+    await this.cookiePreferencePage.click();
   }
 
 }
