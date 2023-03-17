@@ -1,0 +1,27 @@
+{
+  "name": "hvt-automated-test",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "lint": "eslint \"*.ts\" pages tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ibrahimjassat/HVT-automated-tests"
+  },
+  "keywords": [],
+  "author": "Ibrahim Jassat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ibrahimjassat/HVT-automated-tests/issues"
+  },
+  "homepage": "https://github.com/ibrahimjassat/HVT-automated-tests#readme",
+  "devDependencies": {
+    "@dvsa/eslint-config-ts": "^2.4.0",
+    "jest": "^27.5.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "@playwright/test": "^1.22.1"
+  }
+}
