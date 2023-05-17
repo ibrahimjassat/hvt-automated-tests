@@ -1,13 +1,47 @@
 import { expect, test } from '@playwright/test';
 import HomePage from '../pages/Cookies';
 
-test('Given a user wants to accept the cookies on the site', async ( { page } ) => { 
+test('Given the user navigates to the site and the banner is displayed', async ( { page } ) => { 
+
+  const homePage = new HomePage(page);
+  await homePage.goto();
+  
+  await test.step('Then I am presented with the banner', async () => {
+  await expect(page.locator('[aria-label="Cookies on Find a test centre for an HGV\\, bus or trailer MOT"]').first()).toBeVisible();
+  });
+
+});
+
+test('Given User want to review the cookie compliance policy on Find a test centre for an HGV, bus or trailer MOT', async ( { page } ) => { 
+
+  const homePage = new HomePage(page);
+  await homePage.goto();
+  
+  await test.step('when I click the cookie link', async () => {
+    await page.locator('a:has-text("Cookies")').click();
+    await expect(page).toHaveURL(homePage.goto() + '/cookies');
+  });
+
+  await test.step('Then I am on the cookie policy page', async () => {
+    await page.locator('a:has-text("Cookies")').click();
+    await expect(page).toHaveURL('https://int.find-test-centre-hgv-bus-trailer-mot.service.gov.uk/cookies');
+    await expect(page.locator('h2:has-text("Cookies")').nth(1).first()).toBeVisible();
+  });
+  
+
+});
+
+test.only('Given a user wants to accept the cookies on the site', async ( { page } ) => { 
   const homePage = new HomePage(page);
   await homePage.goto();
 
   await test.step('When I am presented with the banner, I click accept', async () => {
     await expect(page.locator('text=Cookies on Find a test centre for an HGV, bus or trailer MOT').first()).toBeVisible();
     await homePage.acceptCookies();
+  });
+
+  await test.step('Then I check if the cookies are set', async () => {
+    
   });
 
   await test.step('Then I hide the banner', async () => {

@@ -2,7 +2,7 @@ import { Locator, Page } from '@playwright/test';
 import BasePage from './BasePage';
 
 export default class HomePage extends BasePage {
-  static path = process.env.CONFIRM_URL + process.env.TOKEN + process.env.TOKEN2;
+  static path = process.env.CONFIRM_URL;
 
   readonly yesRadioButton: Locator;
 
@@ -17,8 +17,9 @@ export default class HomePage extends BasePage {
     this.continueButton = page.locator('button:has-text("Continue")');
   }
 
-  async goto(): Promise<void> {
-    await this.page.goto(HomePage.path);
+  async goto(token: string): Promise<void> {
+    console.log("token is " + token)
+    await this.page.goto(HomePage.path + (token));
   }
 
   async iHaveAvailability(): Promise<void> {
@@ -36,4 +37,3 @@ export default class HomePage extends BasePage {
     await this.page.goto(HomePage.path.concat('hello'));
   }
 }
-
