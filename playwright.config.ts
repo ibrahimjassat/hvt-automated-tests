@@ -52,7 +52,7 @@ const config: PlaywrightTestConfig = {
       },
     },
 
-   /* {
+    {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
@@ -64,10 +64,10 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices['Desktop Safari'],
       },
-    }, */
+    },
 
     /* Test against mobile viewports. */
-   /*  {
+    {
       name: 'Mobile Chrome',
       use: {
         ...devices['Pixel 5'],
@@ -78,10 +78,10 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices['iPhone 12'],
       },
-    }, */
+    },
 
     /* Test against branded browsers. */
-   /*  {
+    {
       name: 'Microsoft Edge',
       use: {
         channel: 'msedge',
@@ -92,7 +92,7 @@ const config: PlaywrightTestConfig = {
       use: {
         channel: 'chrome',
       },
-    }, */
+    },
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
