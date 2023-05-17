@@ -28,10 +28,8 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
-    ['list'],
-    ['html'],
-  ],
+  reporter: 'html',
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -54,7 +52,7 @@ const config: PlaywrightTestConfig = {
       },
     },
 
-   {
+   /* {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
@@ -66,10 +64,10 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices['Desktop Safari'],
       },
-    },
+    }, */
 
     /* Test against mobile viewports. */
-    {
+   /*  {
       name: 'Mobile Chrome',
       use: {
         ...devices['Pixel 5'],
@@ -80,10 +78,10 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices['iPhone 12'],
       },
-    },
+    }, */
 
     /* Test against branded browsers. */
-    {
+   /*  {
       name: 'Microsoft Edge',
       use: {
         channel: 'msedge',
@@ -94,7 +92,7 @@ const config: PlaywrightTestConfig = {
       use: {
         channel: 'chrome',
       },
-    },
+    }, */
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */

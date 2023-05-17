@@ -1,10 +1,11 @@
 import { expect, test } from '@playwright/test';
 import HomePage from '../pages/UpdateATFAvailability';
+import {getValidToken, getExpiredToken, getInvalidToken } from '../data-providers/token.dataProvider';
 
 
 test('Given a Operator wants to update their availability', async ( { page } ) => { 
   const homePage = new HomePage(page);
-  await homePage.goto();
+  await homePage.goto(getValidToken());
   await expect(page.locator('text=Tell DVSA if you could take more MOT bookings').first()).toBeVisible();
 
   await test.step('When the operator update their availability to I have availability', async () => {
@@ -17,9 +18,25 @@ test('Given a Operator wants to update their availability', async ( { page } ) =
 
 });
 
+test('Given as Operator I do not have anymore test slots available', async ( { page } ) => { 
+  const homePage = new HomePage(page);
+  const token = getValidToken();
+  await homePage.goto(token);
+
+  await test.step('When the operator update their availability to I do not have availability', async () => {
+    await homePage.iDoNotHaveAvailability();
+  });
+
+  await test.step('Then I should see a message', async () => {
+    await expect(page.locator('text=is fully booked').first()).toBeVisible();
+    
+  });
+});
+
 test('Given as Operator I do not have anymore test slots and uses the same link to update the availability', async ( { page } ) => { 
   const homePage = new HomePage(page);
-  await homePage.goto();
+  const token = getValidToken();
+  await homePage.goto(token);
 
   await test.step('When the operator update their availability to I do not have availability', async () => {
     await homePage.iDoNotHaveAvailability();
@@ -31,7 +48,7 @@ test('Given as Operator I do not have anymore test slots and uses the same link 
   });
 
   await test.step('Then I have been notified of a cancellation', async () => {
-    await homePage.goto();
+    await homePage.goto(token);
   
     await test.step('Then I update the availability to I have availability', async () => {
       await homePage.iHaveAvailability();
@@ -47,7 +64,7 @@ test('Given as Operator I do not have anymore test slots and uses the same link 
 
 test('Given a Operator wants to update their availability but use an invalid token', async ( { page } ) => { 
   const homePage = new HomePage(page);
-  await homePage.gotoInvalidURL();
+  await homePage.goto(getInvalidToken());
   await expect(page.locator('text=Tell DVSA if you could take more MOT bookings').first()).toBeVisible();
   await expect(page.locator('text=Sorry, there is a problem with the service').first()).toBeVisible();
 });
