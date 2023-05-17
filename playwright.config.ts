@@ -52,7 +52,7 @@ const config: PlaywrightTestConfig = {
       },
     },
 
-   /* {
+    /* {
       name: 'firefox',
       use: {
         ...devices['Desktop Firefox'],
@@ -67,7 +67,7 @@ const config: PlaywrightTestConfig = {
     }, */
 
     /* Test against mobile viewports. */
-   /*  {
+    /*  {
       name: 'Mobile Chrome',
       use: {
         ...devices['Pixel 5'],
@@ -81,7 +81,7 @@ const config: PlaywrightTestConfig = {
     }, */
 
     /* Test against branded browsers. */
-   /*  {
+    /*  {
       name: 'Microsoft Edge',
       use: {
         channel: 'msedge',
