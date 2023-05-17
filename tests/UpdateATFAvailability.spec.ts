@@ -3,7 +3,9 @@ import UpdateATFAvailability from '../pages/UpdateATFAvailability';
 import { getValidToken, getExpiredToken, getInvalidToken } from '../data-providers/token.dataProvider';
 
 
-test('Given a Operator wants to update their availability', async ( { page } ) => { 
+test('Given a Operator wants to update their availability', async ( { page, isMobile} ) => { 
+  test.skip(isMobile === true, 'Skipped as Operator will not be using mobile devices');
+
   const updateATFAvailability = new UpdateATFAvailability(page);
   await updateATFAvailability.goto(getValidToken());
   await expect(updateATFAvailability.pageTitle.first()).toBeVisible();
@@ -18,7 +20,9 @@ test('Given a Operator wants to update their availability', async ( { page } ) =
 
 });
 
-test('Given as Operator I do not have anymore test slots available', async ( { page } ) => { 
+test('Given as Operator I do not have anymore test slots available', async ( { page, isMobile} ) => { 
+  test.skip(isMobile === true, 'Skipped as Operator will not be using mobile devices');
+
   const updateATFAvailability = new UpdateATFAvailability(page);
   const token = getValidToken();
   await updateATFAvailability.goto(token);
@@ -34,7 +38,9 @@ test('Given as Operator I do not have anymore test slots available', async ( { p
   });
 });
 
-test('Given as Operator I do not have anymore test slots and uses the same link to update the availability', async ( { page } ) => { 
+test('Given as Operator I do not have anymore test slots and uses the same link to update the availability', async ( { page, isMobile} ) => { 
+  test.skip(isMobile === true, 'Skipped as Operator will not be using mobile devices');
+
   const updateATFAvailability = new UpdateATFAvailability(page);
   const token = getValidToken();
   await updateATFAvailability.goto(token);
@@ -64,7 +70,9 @@ test('Given as Operator I do not have anymore test slots and uses the same link 
 
 });
 
-test('Given a Operator wants to update their availability but use an expired token', async ( { page } ) => { 
+test('Given a Operator wants to update their availability but use an expired token', async ( { page, isMobile} ) => { 
+  test.skip(isMobile === true, 'Skipped as Operator will not be using mobile devices');
+
   const updateATFAvailability = new UpdateATFAvailability(page);
   const token = getExpiredToken();
   await updateATFAvailability.goto(token);
@@ -74,7 +82,9 @@ test('Given a Operator wants to update their availability but use an expired tok
   
 });
 
-test('Given a Operator wants to update their availability but use an invalid token', async ( { page } ) => { 
+test('Given a Operator wants to update their availability but use an invalid token', async ( { page, isMobile} ) => { 
+  test.skip(isMobile === true, 'Skipped as Operator will not be using mobile devices');
+  
   const updateATFAvailability = new UpdateATFAvailability(page);
   const token = getInvalidToken();
   await updateATFAvailability.goto(token);
