@@ -35,6 +35,8 @@ jobs:
         run: |
           touch .env
           echo SEARCH_URL=${{ secrets.SEARCH_URL }} >> .env
+          echo CONFIRM_URL=${{ secrets.CONFIRM_URL }} >> .env
+          echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
       - name: Install NPM dependencies
         uses: dvsa/.github/.github/actions/install-deps@main
       - name: Install Playwright dependencies
