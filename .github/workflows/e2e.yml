@@ -1,0 +1,53 @@
+name: E2E testing
+on:
+  workflow_dispatch:
+    inputs:
+      run-name:
+        description: 'Please give a name for the run'
+        type: string
+        required: false
+        default: E2E testing
+      environment:
+        description: 'Please select an environment to use'
+        type: environment
+        required: true
+        default: 'int'
+      branch:
+        description: 'Please enter a branch to use for your tests'
+        type: string
+        default: main
+      tag:
+        description: 'Please select test tag'
+        type: string
+        required: true
+        default: 'int'
+
+jobs:
+  e2e:
+    name: Run end-to-end tests
+    environment: int
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.branch }}
+      - name: create env file
+        run: |
+          touch .env
+          echo SEARCH_URL=${{ secrets.SEARCH_URL }} >> .env
+          echo CONFIRM_URL=${{ secrets.CONFIRM_URL }} >> .env
+          echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env
+      - name: Install NPM dependencies
+        uses: dvsa/.github/.github/actions/install-deps@main
+      - name: Install Playwright dependencies
+        run: npx playwright install --with-deps
+      - name: Run Playwright Tests
+        continue-on-error: false
+        run: npx playwright test --grep @${{ inputs.tag }}
+      - name: Upload report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import SearchATFPage from '../pages/SearchATFPage';
 import SearchResultsPage from '../pages/SearchATFResultsPage';
 
-test('Given a Operator wants to find the closest approved Approved Testing Facility is', async ( { page } ) => { 
+test('Given a Operator wants to find the closest approved Approved Testing Facility is @search', async ( { page } ) => { 
   const searchATFPage = new SearchATFPage(page);
   await searchATFPage.goto();
 
