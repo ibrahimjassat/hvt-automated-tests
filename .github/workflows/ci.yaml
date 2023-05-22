@@ -1,8 +1,0 @@
-name: CI
-
-on:
-  push:
-
-jobs:
-  lint:
-    uses: dvsa/.github/.github/workflows/nodejs-lint.yaml@v2
