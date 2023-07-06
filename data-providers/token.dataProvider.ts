@@ -1,6 +1,6 @@
 import { sign, SignOptions } from 'jsonwebtoken';
 
-export const getValidToken = (): string => tokenGenerator({ algorithm:'HS256', issuer:'issuer', 'expiresIn':60 * 60, subject:'856090d1-f2dc-4bbc-ad36-8d14382339e0' }, getJwtSecret(), { startDate:1619395199, endDate:1619395199 });
+export const getValidToken = (): string => tokenGenerator({ algorithm:'HS256', issuer:'issuer', 'expiresIn':60 * 60, subject:'856090d1-f2dc-4bbc-ad36-8d14382339e0' }, getJwtSecret(), { startDate:Date.now(), endDate:Math.floor(+new Date() / 1000) + 14 * 24 * 60 * 60 });
 
 export const getExpiredToken = (): string => tokenGenerator({ algorithm:'HS256', issuer:'issuer', 'expiresIn':0, subject:'856090d1-f2dc-4bbc-ad36-8d14382339e0' }, getJwtSecret(), { startDate:1619395199, endDate:1619395199 });
 
