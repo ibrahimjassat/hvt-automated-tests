@@ -5,6 +5,10 @@
   "scripts": {
     "lint": "eslint \"*.ts\" pages tests"
   },
+  "engines" : { 
+    "npm" : ">=8 <=9.8.1",    
+    "node" : ">=v18.17.1 <=19.8.1"  
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ibrahimjassat/HVT-automated-tests"

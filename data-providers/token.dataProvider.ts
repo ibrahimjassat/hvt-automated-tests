@@ -7,14 +7,14 @@ export const getExpiredToken = (): string => tokenGenerator({ algorithm:'HS256',
 export const getInvalidToken = (): string => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdGFydERhdGUiOjE2MDE5OTQxMDUsImVuZERhdGUiOjE2MDQ0MTMzMDUsImlzQXZhaWxhYmxlIjp0cnVlLCJpYXQiOjMxNTUzMjgwMCwiZXhwIjozMTYwNTEyMDAsImlzcyI6Imh0dHBzOi8vYm9vay1oZ3YtYnVzLXRyYWlsZXItbW90LnNlcnZpY2UuZ292LnVrIiwic3ViIjoiMUQ2MkFCRkQtRjAzRC00REUwLTlFRDUtOEMwMkY5N0M1NTNEIn0.xW2aFHfxhXDTkxXTtqAEdnHlyJtdFhDwXdRIPqLBIck';
 
 export const getJwtSecret = (): string => {
-  return process.env.JWT_SECRET
+  return process.env.JWT_SECRET;
 };
 
-interface payload {
+interface Payload {
   startDate?:number,
   endDate?:number
 }
 
-const tokenGenerator = (options: SignOptions, secret:string, payload?:payload ):string => {
+const tokenGenerator = (options: SignOptions, secret:string, payload?:Payload ):string => {
   return sign(payload || {}, secret, options);
 };
