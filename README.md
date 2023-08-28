@@ -5,10 +5,16 @@ Automation tests for the Heavy Vehicle Testing application.
 > **_NOTE:_** This project uses ESLint to help with code quality and coding style issues. This project uses the ESLint config provided by DVSA. See [DVSA ESLint repo](https://github.com/dvsa/eslint-config-ts) for more information.
 
 ## Prerequisites
+This project uses Node and NPM, see below compatible versions
+```shell
+    "npm" : ">=8 <=9.8.1",    
+    "node" : ">=v18.17.1 <=19.8.1"  
+```
+### Setup
 1. Clone this repository
 
-    ```shell
-   git@github.com:dvsa/HVT-automated-tests.git
+   ```shell
+   git clone git@github.com:ibrahimjassat/HVT-automated-tests.git
     ```
 
 1. Create an `.env` file using `.env.example`
@@ -38,7 +44,13 @@ Automation tests for the Heavy Vehicle Testing application.
 npx playwright test
 ```
 
+### Run set of tests
+Run a set of test using the tags
+
+```shell
+npx playwright test --grep @<tag>
 ```
+
 ### Run a specific browser
 Tests will run in all browsers unless specified. Browsers are listed in playwright.config.ts
 
@@ -68,8 +80,7 @@ Pages where elements are used across multiple tests should be abstracted to a pa
 
 ### If the test requires a new test spec
 1. Create the test in `tests` file affixed with `*.spec.ts`.
-2. If you are covering an area which has not been covered create a folder for these test e.g. if the test been written cover carrying out an MOT test create a folder in `tests` called `motTest`
-1. Test format can be found [here](https://playwright.dev/docs/intro#first-test).
+2. Test format can be found [here](https://playwright.dev/docs/intro#first-test).
 
 *Recommended standards for tests*:
 - Tests _should_ be wrapped with a describe.
