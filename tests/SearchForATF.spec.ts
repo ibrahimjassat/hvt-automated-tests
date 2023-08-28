@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import SearchATFPage from '../pages/SearchATFPage';
 import SearchResultsPage from '../pages/SearchATFResultsPage';
 
-test('Given a Operator wants to find the closest approved Approved Testing Facility is @search', async ( { page } ) => { 
+test('Given a Operator wants to find the closest approved Approved Testing Facility is @search @smoke @regression @release', async ( { page } ) => { 
   const searchATFPage = new SearchATFPage(page);
   await searchATFPage.goto();
 
@@ -17,7 +17,7 @@ test('Given a Operator wants to find the closest approved Approved Testing Facil
 
 });
 
-test('Given a Operator wants to find where they are available test slots', async ( { page } ) => { 
+test('Given a Operator wants to find where they are available test slots @search @smoke @regression @release', async ( { page } ) => { 
   const searchATFPage = new SearchATFPage(page);
   await searchATFPage.goto();
 
@@ -39,7 +39,7 @@ test('Given a Operator wants to find where they are available test slots', async
 
 });
 
-test('Given a Operator enters an incorrect postcode', async ( { page } ) => { 
+test('Given a Operator enters an incorrect postcode @search @smoke @regression @release', async ( { page } ) => { 
   const searchATFPage = new SearchATFPage(page);
   await searchATFPage.goto();
 

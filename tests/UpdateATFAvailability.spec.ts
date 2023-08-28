@@ -3,7 +3,7 @@ import UpdateATFAvailability from '../pages/UpdateATFAvailability';
 import { getValidToken, getExpiredToken, getInvalidToken } from '../data-providers/token.dataProvider';
 
 
-test('Given a Operator wants to update their availability', async ( { page } ) => { 
+test('Given a Operator wants to update their availability @availability @smoke @regression @release', async ( { page } ) => { 
 
   const updateATFAvailability = new UpdateATFAvailability(page);
   await updateATFAvailability.goto(getValidToken());
@@ -19,7 +19,7 @@ test('Given a Operator wants to update their availability', async ( { page } ) =
 
 });
 
-test('Given as Operator I do not have anymore test slots available', async ( { page } ) => { 
+test('Given as Operator I do not have anymore test slots available @availability @smoke @regression @release', async ( { page } ) => { 
 
   const updateATFAvailability = new UpdateATFAvailability(page);
   const token = getValidToken();
@@ -36,7 +36,7 @@ test('Given as Operator I do not have anymore test slots available', async ( { p
   });
 });
 
-test('Given as Operator I do not have anymore test slots and uses the same link to update the availability', async ( { page } ) => { 
+test('Given as Operator I do not have anymore test slots and uses the same link to update the availability @availability @smoke @regression @release', async ( { page } ) => { 
 
   const updateATFAvailability = new UpdateATFAvailability(page);
   const token = getValidToken();
@@ -78,7 +78,7 @@ test('Given a Operator wants to update their availability but use an expired tok
   
 });
 
-test('Given a Operator wants to update their availability but use an invalid token', async ( { page } ) => { 
+test('Given a Operator wants to update their availability but use an invalid token @availability @smoke @regression @release', async ( { page } ) => { 
   
   const updateATFAvailability = new UpdateATFAvailability(page);
   const token = getInvalidToken();

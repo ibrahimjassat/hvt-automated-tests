@@ -18,14 +18,24 @@ on:
         default: main
       tag:
         description: 'Please select test tag'
-        type: string
+        type: choice
         required: true
-        default: 'search'
+        options:
+        - smoke
+        - regression
+        - release
+        - search
+        - availability
+        - cookies
+        - accessibility
 
 jobs:
   e2e:
     name: Run end-to-end tests
     environment: int
+    permissions:
+      id-token: write
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -55,7 +65,7 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
       - name: Run Playwright Tests
         continue-on-error: false
-        run: npx playwright test --config ./${{ inputs.playwright-config-file }} --grep @${{ inputs.tag }}
+        run: npx playwright test --grep @${{ inputs.tag }}
       - name: Upload report
         uses: actions/upload-artifact@v3
         if: always()
