@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import Cookies from '../pages/Cookies';
 import SearchATFPage from '../pages/SearchATFPage';
 
-test('Given the user navigates to the site and the banner is displayed', async ( { page } ) => { 
+test('Given the user navigates to the site and the banner is displayed @cookies @smoke @regression @release', async ( { page } ) => { 
 
   const searchATFpage = new SearchATFPage(page);
   await searchATFpage.goto();
@@ -14,7 +14,7 @@ test('Given the user navigates to the site and the banner is displayed', async (
 
 });
 
-test('Given User want to review the cookie policy on Find a test centre for an HGV, bus or trailer MOT', async ( { page } ) => { 
+test('Given User want to review the cookie policy on Find a test centre for an HGV, bus or trailer MOT @cookies @regression @release', async ( { page } ) => { 
 
   const searchATFPage = new SearchATFPage(page);
   await searchATFPage.goto();
@@ -31,7 +31,7 @@ test('Given User want to review the cookie policy on Find a test centre for an H
   
 });
 
-test('Given a user wants to accept the cookies on the site', async ( { page } ) => { 
+test('Given a user wants to accept the cookies on the site @cookies @smoke @regression @release', async ( { page } ) => { 
   const searchATFPage = new SearchATFPage(page);
   await searchATFPage.goto();
 
@@ -51,7 +51,7 @@ test('Given a user wants to accept the cookies on the site', async ( { page } ) 
   
 });
 
-test('Given a user wants to sets cookie preference', async ( { page } ) => { 
+test('Given a user wants to sets cookie preference @cookies @regression @release', async ( { page } ) => { 
   const searchATFPage = new SearchATFPage(page);
   await searchATFPage.goto();
 
@@ -69,7 +69,7 @@ test('Given a user wants to sets cookie preference', async ( { page } ) => {
     
 });
 
-test('Given a user wants to accept the cookies on the site but then decides to change their analytics preference', async ( { page } ) => { 
+test('Given a user wants to accept the cookies on the site but then decides to change their analytics preference @cookies @regression @release', async ( { page } ) => { 
   const searchATFPage = new SearchATFPage(page);
   await searchATFPage.goto();
 
