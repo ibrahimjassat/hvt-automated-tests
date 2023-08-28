@@ -14,7 +14,7 @@ This project uses Node and NPM, see below compatible versions
 1. Clone this repository
 
    ```shell
-   git clone git@github.com:ibrahimjassat/HVT-automated-tests.git
+   git clone git@github.com:ibrahimjassat/hvt-automated-tests.git
     ```
 
 1. Create an `.env` file using `.env.example`
